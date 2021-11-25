@@ -627,6 +627,7 @@ static const struct vkd3d_debug_option vkd3d_config_options[] =
     {"recycle_command_pools", VKD3D_CONFIG_FLAG_RECYCLE_COMMAND_POOLS},
     {"pipeline_library_ignore_mismatch_driver", VKD3D_CONFIG_FLAG_PIPELINE_LIBRARY_IGNORE_MISMATCH_DRIVER},
     {"breadcrumbs", VKD3D_CONFIG_FLAG_BREADCRUMBS},
+    {"force_raw_va_cbv", VKD3D_CONFIG_FLAG_FORCE_RAW_VA_CBV},
 };
 
 static void vkd3d_config_flags_init_once(void)
