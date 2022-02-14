@@ -491,6 +491,11 @@ static const struct vkd3d_instance_application_meta application_override[] = {
     /* The game forgets to do a barrier when going from render pass to compute. */
     { VKD3D_STRING_COMPARE_EXACT, "Deathloop.exe",
             VKD3D_CONFIG_FLAG_IGNORE_RTV_HOST_VISIBLE | VKD3D_CONFIG_FLAG_WORKAROUND_MISSING_COLOR_COMPUTE_BARRIERS, 0 },
+    /* Halo Infinite (1240440).
+     * Game relies on NON_ZEROED committed UAVs to be cleared to zero on allocation.
+     * This works okay with zerovram on first game boot, but not later, since this memory is guaranteed to be recycled. */
+    { VKD3D_STRING_COMPARE_EXACT, "HaloInfinite.exe",
+            VKD3D_CONFIG_FLAG_ZERO_MEMORY_WORKAROUNDS_COMMITTED_BUFFER_UAV, 0 },
     /* Shadow of the Tomb Raider (750920).
      * Invariant workarounds actually cause more issues than they resolve on NV.
      * RADV already has workarounds by default.
